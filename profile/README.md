@@ -1,37 +1,62 @@
-# FreeSense
+<div align="center">
 
-**An open-source firewall & router distribution — a community rebuild and rebrand of [pfSense](https://www.pfsense.org/)® CE, built from source on FreeBSD and published under the Apache License 2.0.**
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/FreeSense-org/.github/main/brand/lockup-dark.png">
+  <img alt="FreeSense — open firewall distro" src="https://raw.githubusercontent.com/FreeSense-org/.github/main/brand/lockup-light.png" width="460">
+</picture>
 
-FreeSense takes the open-source pfSense CE codebase, rebuilds it cleanly from source, and ships it under a neutral, community-owned name and package repository. The whole firewall stack — FreeBSD base, kernel, `rc` system, PHP/nginx web GUI, and the configuration system — is built end-to-end and distributed from infrastructure we control.
+### The open firewall &amp; router distribution — **open source all the way down, including the updater.**
+
+[![License](https://img.shields.io/badge/license-Apache--2.0-EA4F2D?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Built on FreeBSD](https://img.shields.io/badge/built%20on-FreeBSD-14181F?style=flat-square)](https://www.freebsd.org/)
+[![Packages](https://img.shields.io/badge/pkg-pkg.freesense.org-EA4F2D?style=flat-square)](https://pkg.freesense.org)
+[![ISOs](https://img.shields.io/badge/downloads-downloads.freesense.org-14181F?style=flat-square)](https://downloads.freesense.org)
+
+</div>
 
 ---
 
-## Repositories
+**FreeSense** is a community-owned firewall and router operating system, built from source on
+FreeBSD with a hardened kernel, a full web GUI, and a curated set of networking packages.
+It grew out of the open-source pfSense® CE codebase, but everything you run — the base OS, the
+packages, the web UI, **and the update client** — is open, auditable, and published from
+infrastructure the community controls.
+
+## Why FreeSense
+
+- 🔓 **Open all the way down — including the updater.** The piece that decides which firmware and
+  packages your firewall trusts and installs is, on most "open" firewalls, a closed vendor binary.
+  In FreeSense it's a small, readable, fully open implementation. Nothing about how your box updates
+  itself is a black box.
+- 🛠️ **An open build &amp; release pipeline.** Every package and ISO is built in public CI you can
+  read top to bottom, cryptographically signed, and published to open infrastructure. No private
+  build server, no "trust us" artifacts.
+- 📦 **Reproducible, from source.** The OS base is stock upstream FreeBSD plus a small, auditable
+  patch series — no opaque fork to take on faith. Re-pin, re-apply, rebuild.
+- 🔑 **Own your trust root.** Anyone can rebuild FreeSense under Apache 2.0 with **their own** signing
+  key and run an independent, equally-official distribution. That's the whole point.
+- 🌐 **Independent infrastructure.** Signed packages at **[pkg.freesense.org](https://pkg.freesense.org)**
+  and installer images at **[downloads.freesense.org](https://downloads.freesense.org)**, served as
+  plain signed static files over a CDN — a firewall repo needs no application server.
+- 🧭 **Release &amp; devel channels.** Pick a stable release channel or ride development, and upgrade
+  cleanly between versions — release → release, devel → devel — straight from the web UI.
+
+## Explore
 
 | Repository | What's in it |
 |------------|--------------|
-| **[freesense](https://github.com/FreeSense-org/freesense)** | The main source & build tree — rebranded `src/`, the `tools/` builder, `build.sh`, and CI. |
-| **[freesense-ports](https://github.com/FreeSense-org/freesense-ports)** | The ports overlay / poudriere recipes — `FreeSense-*` port Makefiles and the package build set. |
-| **[freesense.org](https://github.com/FreeSense-org/freesense.org)** | The project website and downloads page. |
+| **[freesense](https://github.com/FreeSense-org/freesense)** | Main source &amp; build tree — the OS sources, the `tools/` builder, `build.sh`, and CI. |
+| **[freesense-ports](https://github.com/FreeSense-org/freesense-ports)** | Ports overlay / poudriere recipes — the `FreeSense-*` packages and build set. |
+| **[freesense-os-base](https://github.com/FreeSense-org/freesense-os-base)** | The open build &amp; release pipeline — world+kernel core packages and ports, built on CI, signed, shipped to R2. |
+| **[freesense-freebsd-patches](https://github.com/FreeSense-org/freesense-freebsd-patches)** | The FreeBSD base delta, as a clean patch series on a pinned upstream commit. |
+| **[freesense.org](https://github.com/FreeSense-org/freesense.org)** | Project website and downloads page. |
 
-> Built package binaries are published to **`pkg.freesense.org`** and installer images to **`downloads.freesense.org`** — they are not stored in Git.
-
----
-
-## How it fits together
-
-- A FreeBSD **package repository is just signed static files over HTTPS**, so FreeSense's `pkg` repo and ISO images are served as plain static objects from a CDN — no application server.
-- Installed systems fetch packages from **`pkg.freesense.org`** and verify them against a fingerprint that ships in the OS, so only repositories signed with the FreeSense key are trusted as "official."
-- Anyone can rebuild FreeSense from source under the Apache License with **their own** signing key — that's the point of an open distribution.
+> Built package binaries and ISO images are published to the CDN above — they are not stored in Git.
 
 ---
 
-## License & attribution
+<sub>
 
-FreeSense is licensed under the **Apache License, Version 2.0**.
+**Upstream &amp; license.** FreeSense is a derivative work of **pfSense® CE**, © 2004–2016 Electric Sheep Fencing, LLC and © 2014–2026 Rubicon Communications, LLC (Netgate), originally published under the Apache License 2.0; portions originate from m0n0wall. FreeSense is licensed under the **Apache License 2.0**, and original copyright notices are retained per that license. *"pfSense" is a registered trademark of Electric Sheep Fencing, LLC, licensed to Netgate.* FreeSense is **not** pfSense and is **not** affiliated with, sponsored by, or endorsed by Netgate or Electric Sheep Fencing — the name is used only to identify the upstream project FreeSense is derived from. Provided **"AS IS"**, without warranty of any kind.
 
-FreeSense is a **derivative work of pfSense CE**, Copyright © 2004–2016 Electric Sheep Fencing, LLC and © 2014–2026 Rubicon Communications, LLC (Netgate), originally published under the Apache License 2.0. Original copyright notices are retained in accordance with that license. Portions are originally based on m0n0wall.
-
-> **"pfSense" is a registered trademark of Electric Sheep Fencing, LLC, licensed to Netgate.** FreeSense is **not** pfSense and is **not** affiliated with, sponsored by, or endorsed by Netgate or Electric Sheep Fencing. The pfSense name is used here only to identify the upstream project from which FreeSense is derived.
-
-This software is provided **"AS IS"**, without warranty of any kind. See the `LICENSE` and `NOTICE` files in each repository.
+</sub>
