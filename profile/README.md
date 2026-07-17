@@ -46,7 +46,8 @@ infrastructure the community controls.
 | Repository | What's in it |
 |------------|--------------|
 | **[freesense](https://github.com/FreeSense-org/freesense)** | Main source &amp; build tree — the OS sources, the `tools/` builder, `build.sh`, and CI. |
-| **[freesense-ports](https://github.com/FreeSense-org/freesense-ports)** | Ports overlay / poudriere recipes — the `FreeSense-*` packages and build set. |
+| **[freesense-system-ports](https://github.com/FreeSense-org/freesense-system-ports)** | System and runtime ports used to build the operating system, update repository, and installation media. |
+| **[freesense-packages](https://github.com/FreeSense-org/freesense-packages)** | Optional package ports and metadata published through the FreeSense package manager. |
 | **[freesense-os-base](https://github.com/FreeSense-org/freesense-os-base)** | The open build &amp; release pipeline — world+kernel core packages and ports, built on CI, signed, shipped to R2. The FreeBSD base delta (patch series on a pinned upstream commit) lives on its per-version [`os-base/*` branches](https://github.com/FreeSense-org/freesense-os-base/tree/os-base/freebsd-16.0). |
 | **[freesense.org](https://github.com/FreeSense-org/freesense.org)** | Project website and downloads page. |
 
