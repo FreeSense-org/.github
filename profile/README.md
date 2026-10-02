@@ -55,8 +55,4 @@ infrastructure the community controls.
 
 ---
 
-<sub>
-
 **Upstream &amp; license.** FreeSense is a derivative work of **pfSense® CE**, © 2004–2016 Electric Sheep Fencing, LLC and © 2014–2026 Rubicon Communications, LLC (Netgate), originally published under the Apache License 2.0; portions originate from m0n0wall. FreeSense is licensed under the **Apache License 2.0**, and original copyright notices are retained per that license. *"pfSense" is a registered trademark of Electric Sheep Fencing, LLC, licensed to Netgate.* FreeSense is **not** pfSense and is **not** affiliated with, sponsored by, or endorsed by Netgate or Electric Sheep Fencing — the name is used only to identify the upstream project FreeSense is derived from. Provided **"AS IS"**, without warranty of any kind.
-
-</sub>
