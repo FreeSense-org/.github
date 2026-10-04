@@ -8,50 +8,87 @@
 ### The open firewall &amp; router distribution — **open source all the way down, including the updater.**
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-EA4F2D?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Built on FreeBSD](https://img.shields.io/badge/built%20on-FreeBSD-14181F?style=flat-square)](https://www.freebsd.org/)
-[![Packages](https://img.shields.io/badge/pkg-pkg.freesense.org-EA4F2D?style=flat-square)](https://pkg.freesense.org)
-[![ISOs](https://img.shields.io/badge/downloads-downloads.freesense.org-14181F?style=flat-square)](https://downloads.freesense.org)
+[![Built on FreeBSD 16](https://img.shields.io/badge/built%20on-FreeBSD%2016-14181F?style=flat-square)](https://www.freebsd.org/)
+[![Stable 1.0.x](https://img.shields.io/badge/stable-1.0.x-EA4F2D?style=flat-square)](https://www.freesense.org/download/)
+[![Development 1.1](https://img.shields.io/badge/development-1.1%20nightly-14181F?style=flat-square)](https://www.freesense.org/download/)
+[![Docs](https://img.shields.io/badge/docs-docs.freesense.org-EA4F2D?style=flat-square)](https://docs.freesense.org)
+
+**[Website](https://www.freesense.org)** · **[Download](https://www.freesense.org/download/)** · **[Documentation](https://docs.freesense.org)** · **[News](https://www.freesense.org/news/)**
 
 </div>
 
 ---
 
 **FreeSense** is a community-owned firewall and router operating system, built from source on
-FreeBSD with a hardened kernel, a full web GUI, and a curated set of networking packages.
-It grew out of the open-source pfSense® CE codebase, but everything you run — the base OS, the
-packages, the web UI, **and the update client** — is open, auditable, and published from
-infrastructure the community controls.
+FreeBSD 16 with a full web GUI and a curated set of networking packages. It grew out of the
+open-source pfSense® CE codebase, but everything you run — the base OS, the packages, the web UI,
+**and the update client** — is open, auditable, and published from infrastructure the community
+controls. No accounts, no activation, no telemetry.
+
+## What's new
+
+- 🆕 **[NetSpider](https://www.freesense.org/apps/netspider/)** joins the FreeSense family — a free,
+  open-source Layer 2 / Layer 3 network diagnostics tool for Windows that maps every device and
+  pinpoints the failing hop.
+- 🏗️ **Dedicated build server.** FreeSense now compiles on its own dedicated build machine — a
+  self-hosted GitHub Actions runner (AMD Ryzen 7, 16 threads, KVM). Each component builds in a fresh,
+  throwaway FreeBSD VM. The same build that took over two hours on GitHub-hosted runners now finishes
+  in under 40 minutes.
+- 🌙 **Nightly Development builds.** The rolling **1.1** line is planned every night at 01:00 UTC.
+  Only components whose inputs changed are rebuilt, and verified results are published to the
+  `devel` channel automatically.
+- 🍓 **ARM64 &amp; Raspberry Pi preview.** A generic ARM64 UEFI installer plus Raspberry Pi 4B and
+  Pi 5 appliance images, built next to amd64 in the same pipeline. Experimental, made for labs.
+- ☁️ **Official cloud images.** Preinstalled QCOW2 and raw GPT disks (UFS or ZFS, BIOS and UEFI)
+  for Proxmox, OpenStack, QEMU/KVM and bhyve.
+- 📚 **[docs.freesense.org](https://docs.freesense.org)** — installation, upgrades, packages and
+  operations guides.
+
+## Releases
+
+| Line | Status | What to expect |
+|------|--------|----------------|
+| **Stable 1.0.x** | Supported | The production line. Immutable releases; necessary security fixes ship as signed patch releases. |
+| **Development 1.1** | Experimental | Rolling, rebuilt nightly from source. For labs and testing. Upgrading 1.0 → 1.1 is one-way. |
+
+System and Optional Packages are built, signed and published independently: a System-only change
+never forces a package rebuild. The FreeBSD platform pin advances every 14 days, and an ISO is
+only published once a verified System + Packages pair passes its smoke tests.
 
 ## Why FreeSense
 
 - 🔓 **Open all the way down — including the updater.** The piece that decides which firmware and
   packages your firewall trusts and installs is, on most "open" firewalls, a closed vendor binary.
-  In FreeSense it's a small, readable, fully open implementation. Nothing about how your box updates
-  itself is a black box.
-- 🛠️ **An open build &amp; release pipeline.** Every package and ISO is built in public CI you can
-  read top to bottom, cryptographically signed, and published to open infrastructure. No private
-  build server, no "trust us" artifacts.
+  In FreeSense it's a small, readable, fully open implementation.
+- 🛠️ **An open build &amp; release pipeline.** Every workflow, pin, build log and release decision
+  is public in GitHub Actions. The heavy compilation runs on our dedicated build server, and its
+  recipe is in the repository too: nothing is built off the record, and every artifact traces back
+  to exact, inspectable source, ports and FreeBSD revisions.
 - 📦 **Reproducible, from source.** The OS base is stock upstream FreeBSD plus a small, auditable
-  patch series — no opaque fork to take on faith. Re-pin, re-apply, rebuild.
-- 🔑 **Own your trust root.** Anyone can rebuild FreeSense under Apache 2.0 with **their own** signing
-  key and run an independent, equally-official distribution. That's the whole point.
-- 🌐 **Independent infrastructure.** Signed packages at **[pkg.freesense.org](https://pkg.freesense.org)**
-  and installer images at **[downloads.freesense.org](https://downloads.freesense.org)**, served as
-  plain signed static files over a CDN — a firewall repo needs no application server.
-- 🧭 **Release &amp; devel channels.** Pick a stable release channel or ride development, and upgrade
-  cleanly between versions — release → release, devel → devel — straight from the web UI.
+  [patch series](https://github.com/FreeSense-org/freesense-os-base/tree/main/patches) — no opaque
+  fork to take on faith. Re-pin, re-apply, rebuild.
+- 🔑 **Own your trust root.** Updates are RSA-signed and verified on the appliance before anything
+  changes. Anyone can rebuild FreeSense under Apache 2.0 with **their own** signing key and run an
+  independent, equally-official distribution.
+- 🌐 **Independent infrastructure.** Signed packages at **pkg.freesense.org** and installer images
+  at **downloads.freesense.org**, served as plain signed static files over a CDN — a firewall repo
+  needs no application server.
+- ♻️ **Upgrade boldly, roll back calmly.** ZFS boot environments snapshot the whole OS before an
+  upgrade; pick a known-good one from the WebUI or the boot menu.
 
 ## Explore
 
 | Repository | What's in it |
 |------------|--------------|
-| **[freesense](https://github.com/FreeSense-org/freesense)** | Main source &amp; build tree — the OS sources, the `tools/` builder, `build.sh`, and CI. |
-| **[freesense-system-ports](https://github.com/FreeSense-org/freesense-system-ports)** | System and runtime ports used to build the operating system, update repository, and installation media. |
-| **[freesense-packages](https://github.com/FreeSense-org/freesense-packages)** | Optional package ports and metadata published through the FreeSense package manager. |
-| **[freesense-os-base](https://github.com/FreeSense-org/freesense-os-base)** | The open build &amp; release pipeline — world+kernel core packages and ports, built on CI, signed, shipped to R2. The FreeBSD base delta (patch series on a pinned upstream commit) lives on its per-version [`os-base/*` branches](https://github.com/FreeSense-org/freesense-os-base/tree/os-base/freebsd-16.0). |
-| **[freesense.org](https://github.com/FreeSense-org/freesense.org)** | Project website and downloads page. |
+| **[freesense](https://github.com/FreeSense-org/freesense)** | Base product source — installer, WebUI, system behavior and the `tools/` builder. |
+| **[freesense-os-base](https://github.com/FreeSense-org/freesense-os-base)** | The build &amp; release control plane — FreeBSD 16 pin and patch series, GitHub Actions workflows, build runner recipe, signing and publication. |
+| **[freesense-system-ports](https://github.com/FreeSense-org/freesense-system-ports)** | Operating-system ports overlay used to build the System repository and installation media. |
+| **[freesense-packages](https://github.com/FreeSense-org/freesense-packages)** | Optional packages published through the FreeSense package manager. |
+| **[freesense-docs](https://github.com/FreeSense-org/freesense-docs)** | Source for [docs.freesense.org](https://docs.freesense.org). |
+| **[freesense.org](https://github.com/FreeSense-org/freesense.org)** | Project website, downloads page and live release feeds. |
+| **[NetSpider](https://github.com/FreeSense-org/NetSpider)** | L2/L3 network diagnostics for Windows — part of the FreeSense family. |
 
-> Built package binaries and ISO images are published to the CDN above — they are not stored in Git.
+> Built package binaries and ISO images are published to the CDN — they are not stored in Git.
 
 ---
 
