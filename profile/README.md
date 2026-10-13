@@ -30,9 +30,12 @@ controls. No accounts, no activation, no telemetry.
 - 🚀 **FreeSense 1.1 is Stable.** 1.1.0 replaces 1.0.x as the supported line, with a REST API and
   API Explorer, custom package repositories, a rebuilt Package Manager, a reworked WebUI with
   grouped menus and menu search, VXLAN interfaces, encrypted remote configuration backups, and
-  Threat Shield &amp; DNS Protection. Upgrading from 1.0 is one-way.
+  Threat Shield &amp; DNS Protection. Upgrading from 1.0 is one-way. **1.1.1** follows from the
+  same sources and adds generic ARM64 (UEFI) to Stable.
+  [What's new](https://docs.freesense.org/releases/whats-new-1.1/) ·
   [Release notes](https://docs.freesense.org/releases/1.1.0/) ·
-  [Upgrade guide](https://docs.freesense.org/guides/upgrading-from-1.0/)
+  [Upgrade guide](https://docs.freesense.org/guides/upgrading-from-1.0/) ·
+  [REST API](https://docs.freesense.org/api/overview/)
 - 🆕 **[NetSpider](https://www.freesense.org/apps/netspider/)** joins the FreeSense family — a free,
   open-source Layer 2 / Layer 3 network diagnostics tool for Windows that maps every device and
   pinpoints the failing hop.
@@ -43,20 +46,21 @@ controls. No accounts, no activation, no telemetry.
 - 🌙 **Nightly Development builds.** The rolling **1.2** line is planned every night at 01:00 UTC.
   Only components whose inputs changed are rebuilt, and verified results are published to the
   `devel` channel automatically.
-- 🍓 **ARM64 &amp; Raspberry Pi preview.** A generic ARM64 UEFI installer plus Raspberry Pi 4B and
-  Pi 5 appliance images on the Development line, built next to amd64 in the same pipeline.
-  Experimental, made for labs. Stable 1.1.0 is amd64; generic ARM64 joins the 1.1 Stable line in a
-  patch release, while the Raspberry Pi images stay on Development.
+- 🍓 **ARM64 on Stable, Raspberry Pi preview.** From 1.1.1, Stable ships a generic ARM64 UEFI
+  installer with ARM64 System and Optional Packages, built next to amd64 in the same pipeline. The
+  Raspberry Pi 4B and Pi 5 appliance images stay on the Development line: experimental, made for
+  labs.
 - ☁️ **Official cloud images.** Preinstalled QCOW2 and raw GPT disks (UFS or ZFS, BIOS and UEFI)
   for Proxmox, OpenStack, QEMU/KVM and bhyve.
-- 📚 **[docs.freesense.org](https://docs.freesense.org)** — installation, upgrades, packages and
-  operations guides.
+- 📚 **[docs.freesense.org](https://docs.freesense.org)**, rebuilt for 1.1: installation, upgrades,
+  a guide for every optional package, the REST API reference and operations guides, with frozen
+  [1.0 docs](https://docs.freesense.org/1.0/) for systems that have not upgraded yet.
 
 ## Releases
 
 | Line | Status | What to expect |
 |------|--------|----------------|
-| **Stable 1.1.x** | Supported | The production line (amd64). Immutable releases; necessary security fixes ship as signed patch releases. Upgrading 1.0 → 1.1 is one-way. |
+| **Stable 1.1.x** | Supported | The production line: amd64, plus generic ARM64 from 1.1.1. Immutable releases; necessary security fixes ship as signed patch releases. Upgrading 1.0 → 1.1 is one-way. |
 | **Development 1.2** | Experimental | Rolling, rebuilt nightly from source. For labs and testing. Moving from Stable to Development is one-way. |
 | **1.0.x** | Superseded | Replaced by 1.1. Downloads stay published; ordinary fixes are not backported. |
 
