@@ -45,7 +45,8 @@ controls. No accounts, no activation, no telemetry.
   `devel` channel automatically.
 - 🍓 **ARM64 &amp; Raspberry Pi preview.** A generic ARM64 UEFI installer plus Raspberry Pi 4B and
   Pi 5 appliance images on the Development line, built next to amd64 in the same pipeline.
-  Experimental, made for labs. Stable 1.1.0 is amd64 only.
+  Experimental, made for labs. Stable 1.1.0 is amd64; generic ARM64 joins the 1.1 Stable line in a
+  patch release, while the Raspberry Pi images stay on Development.
 - ☁️ **Official cloud images.** Preinstalled QCOW2 and raw GPT disks (UFS or ZFS, BIOS and UEFI)
   for Proxmox, OpenStack, QEMU/KVM and bhyve.
 - 📚 **[docs.freesense.org](https://docs.freesense.org)** — installation, upgrades, packages and
