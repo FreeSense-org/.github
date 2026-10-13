@@ -9,8 +9,8 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-EA4F2D?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Built on FreeBSD 16](https://img.shields.io/badge/built%20on-FreeBSD%2016-14181F?style=flat-square)](https://www.freebsd.org/)
-[![Stable 1.0.x](https://img.shields.io/badge/stable-1.0.x-EA4F2D?style=flat-square)](https://www.freesense.org/download/)
-[![Development 1.1](https://img.shields.io/badge/development-1.1%20nightly-14181F?style=flat-square)](https://www.freesense.org/download/)
+[![Stable 1.1.x](https://img.shields.io/badge/stable-1.1.x-EA4F2D?style=flat-square)](https://www.freesense.org/download/)
+[![Development 1.2](https://img.shields.io/badge/development-1.2%20nightly-14181F?style=flat-square)](https://www.freesense.org/download/)
 [![Docs](https://img.shields.io/badge/docs-docs.freesense.org-EA4F2D?style=flat-square)](https://docs.freesense.org)
 
 **[Website](https://www.freesense.org)** · **[Download](https://www.freesense.org/download/)** · **[Documentation](https://docs.freesense.org)** · **[News](https://www.freesense.org/news/)**
@@ -27,6 +27,12 @@ controls. No accounts, no activation, no telemetry.
 
 ## What's new
 
+- 🚀 **FreeSense 1.1 is Stable.** 1.1.0 replaces 1.0.x as the supported line, with a REST API and
+  API Explorer, custom package repositories, a rebuilt Package Manager, a reworked WebUI with
+  grouped menus and menu search, VXLAN interfaces, encrypted remote configuration backups, and
+  Threat Shield &amp; DNS Protection. Upgrading from 1.0 is one-way.
+  [Release notes](https://docs.freesense.org/releases/1.1.0/) ·
+  [Upgrade guide](https://docs.freesense.org/guides/upgrading-from-1.0/)
 - 🆕 **[NetSpider](https://www.freesense.org/apps/netspider/)** joins the FreeSense family — a free,
   open-source Layer 2 / Layer 3 network diagnostics tool for Windows that maps every device and
   pinpoints the failing hop.
@@ -34,11 +40,12 @@ controls. No accounts, no activation, no telemetry.
   self-hosted GitHub Actions runner (AMD Ryzen 7, 16 threads, KVM). Each component builds in a fresh,
   throwaway FreeBSD VM. The same build that took over two hours on GitHub-hosted runners now finishes
   in under 40 minutes.
-- 🌙 **Nightly Development builds.** The rolling **1.1** line is planned every night at 01:00 UTC.
+- 🌙 **Nightly Development builds.** The rolling **1.2** line is planned every night at 01:00 UTC.
   Only components whose inputs changed are rebuilt, and verified results are published to the
   `devel` channel automatically.
 - 🍓 **ARM64 &amp; Raspberry Pi preview.** A generic ARM64 UEFI installer plus Raspberry Pi 4B and
-  Pi 5 appliance images, built next to amd64 in the same pipeline. Experimental, made for labs.
+  Pi 5 appliance images on the Development line, built next to amd64 in the same pipeline.
+  Experimental, made for labs. Stable 1.1.0 is amd64 only.
 - ☁️ **Official cloud images.** Preinstalled QCOW2 and raw GPT disks (UFS or ZFS, BIOS and UEFI)
   for Proxmox, OpenStack, QEMU/KVM and bhyve.
 - 📚 **[docs.freesense.org](https://docs.freesense.org)** — installation, upgrades, packages and
@@ -48,8 +55,9 @@ controls. No accounts, no activation, no telemetry.
 
 | Line | Status | What to expect |
 |------|--------|----------------|
-| **Stable 1.0.x** | Supported | The production line. Immutable releases; necessary security fixes ship as signed patch releases. |
-| **Development 1.1** | Experimental | Rolling, rebuilt nightly from source. For labs and testing. Upgrading 1.0 → 1.1 is one-way. |
+| **Stable 1.1.x** | Supported | The production line (amd64). Immutable releases; necessary security fixes ship as signed patch releases. Upgrading 1.0 → 1.1 is one-way. |
+| **Development 1.2** | Experimental | Rolling, rebuilt nightly from source. For labs and testing. Moving from Stable to Development is one-way. |
+| **1.0.x** | Superseded | Replaced by 1.1. Downloads stay published; ordinary fixes are not backported. |
 
 System and Optional Packages are built, signed and published independently: a System-only change
 never forces a package rebuild. The FreeBSD platform pin advances every 14 days, and an ISO is
